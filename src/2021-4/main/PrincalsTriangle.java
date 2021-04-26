@@ -26,13 +26,13 @@ class SolutionG{
         if (numRows == 2) {
             return result;
         }
-        List<Integer> preNuumber = result.get(1);
+        List<Integer> preNuumber = result.get(1);//初始获取第2个数组开始两边的值
         for (int i = 3; i <= numRows; i++) {
             List<Integer> list = new ArrayList(){{add(1);}};//每次都将第1个数设置为1
             for (int j = 1; j < i - 1; j++) {
                 list.add(preNuumber.get(j) + preNuumber.get(j - 1));//获取当期索引值的左右两边的值
             }
-            list.add(1);//存取左右两边的值
+            list.add(1);//添加末尾的1
             preNuumber = list;
             result.add(list);
         }
